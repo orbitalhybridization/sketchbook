@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Ian L. Jackson</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Blog</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="blog.html">Blog</a>
+        <a href="projects.html">Projects</a>
+        <a href="assets/cv.pdf" target="_blank">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+  </header>
+
+  <main>
+    <!-- <h2>Recent Posts</h2>
+    <ul class="blog-list">
+      <li>
+        <a href="posts/post1.html">noisepoetry</a>
+        <p>Published on Dec 24, 2024</p>
+      </li>
+      <li>
+        <a href="posts/post2.html">untitled</a>
+        <p>Published on Jan 5, 2024</p>
+      </li>
+    </ul> -->
+
+    <!-- Add a filter menu -->
+    <div class="filters">
+        <button onclick="filterPosts('all')">All</button>
+        <button onclick="filterPosts('music')">Music</button>
+        <button onclick="filterPosts('production')">Production</button>
+        <button onclick="filterPosts('thoughts')">Thoughts</button>
+    </div>
+    
+    <!-- Blog Posts -->
+    <ul class="blog-list">
+        <li class="post" data-category="music production noise lingua-ignota diary">
+          <a href="posts/post1.html">noisepoetry</a>
+        </li>
+      </ul>
+  </main>
+
+  <footer>
+    <p>© 2024 Ian L. Jackson</p>
+  </footer>
+  <script src="js/filter.js"></script>
+
+</body>
+
+</html>
