@@ -1,11 +1,100 @@
+/* General Reset for Navigation */
 body {
   font-family: Arial, sans-serif;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-  color: #333;
   background-color: #f9f9f9;
+  color: #333;
 }
+
+header {
+  background-color: #000;  /* Black background for the header */
+  color: white;  /* White text */
+  padding: 20px;
+  text-align: center; /* Center the nav menu */
+}
+
+/* Navigation Menu Styling */
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;  /* Center the menu by making it inline-block */
+  text-align: left; /* Align the items to the left */
+  background-color: #000;  /* Black background for the nav menu */
+}
+
+.nav-menu li {
+  position: relative;  /* Needed for dropdown positioning */
+  display: inline-block; /* Ensure items are in a row */
+}
+
+.nav-menu a {
+  display: block;
+  color: white;  /* White text for links */
+  padding: 15px 20px;
+  text-decoration: none;
+}
+
+/* Hover effect for nav links */
+.nav-menu a:hover {
+  background-color: #333;  /* Darker gray on hover */
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  list-style: none;
+  position: absolute;
+  top: 100%; /* Position below the parent */
+  left: 0;
+  background-color: white; /* White background for the dropdown */
+  color: #333; /* Dark text color for dropdown items */
+  padding: 0;
+  margin: 0;
+  display: none; /* Hidden by default */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for dropdown */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.dropdown-menu li {
+  width: 200px; /* Width of dropdown items */
+}
+
+.dropdown-menu a {
+  color: #333; /* Dark text color for dropdown links */
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+}
+
+/* Hover effect for dropdown links */
+.dropdown-menu a:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu {
+  display: block; /* Display the menu when the parent is hovered */
+}
+
+/* Optional: Animation for Dropdown Appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to dropdown when it appears */
+.dropdown-menu {
+  animation: fadeIn 0.3s ease;
+}
+
 
 header {
   background: #222;
@@ -89,4 +178,68 @@ footer {
 .interest h3 {
   margin-top: 0;
   color: #0077b6;
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #0077b6;
+  margin-top: 30px;
+}
+
+article h3 {
+  margin-top: 20px;
+  color: #005f8a;
+}
+
+p {
+  margin: 15px 0;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+/* Media */
+img {
+  display: block;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+video {
+  display: block;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+a {
+  color: #0077b6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 10px 0;
+  font-size: 0.9em;
+  color: #555;
 }
