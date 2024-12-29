@@ -10,23 +10,15 @@
   <header>
     <h1>Ian L. Jackson</h1>
     <p>Exploring creativity through science and music.</p>
-    <nav>
-      <ul class="nav-menu">
-        <li><a href="test.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li class="dropdown">
-          <a href="#">Projects</a>
-          <ul class="dropdown-menu">
-            <li><a href="projects/dynamics.html">Dynamics</a></li>
-            <li><a href="projects/pirat.html">PiRat</a></li>
-          </ul>
-        </li>
-        <li><a href="assets/docs/cv.pdf">CV</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-    </nav>
+    <div id="header"></div>
+    <script>
+       fetch('assets/header.html')
+          .then(response => response.text())
+          .then(data => {
+             document.getElementById('header').innerHTML = data;
+          })
+          .catch(error => console.error('Error loading header:', error));
+    </script>   
   </header>
 
   <main>

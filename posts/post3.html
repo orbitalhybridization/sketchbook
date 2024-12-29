@@ -3,33 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nicholas</title>
+  <title>Can Large Language Models "Think" Like Humans?</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <header>
     <h1>Blog</h1>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../about.html">About Me</a>
-      <a href="../blog.html">Blog</a>
-      <a href="../projects.html">Projects</a>
-      <a href="../assets/docs/cv.pdf" target="_blank">CV</a>
-      <a href="../contact.html">Contact</a>
-    </nav>
+    <div id="header"></div>
+    <script>
+       fetch('../assets/header.html')
+          .then(response => response.text())
+          .then(data => {
+             document.getElementById('header').innerHTML = data;
+          })
+          .catch(error => console.error('Error loading header:', error));
+    </script> 
   </header>
 
   <main>
     <article>
-      <h2>Get to it</h2>
-      <p><em>Published Dec 25, 2024</em></p>
-      <p><em>Edited Dec 25, 2024</em></p>
+      <h2>Can Large Language Models "Think" Like Humans?</h2>
+      <p><em>Published </em></p>
+      <p><em>Edited </em></p>
 
       <p>
-        This is a short track of a nice little acoustic plucking pattern that came to me after a jam session with some friends.
-        Instead of lyrics, I thought humming would be a nice touch, in the style of Ichiko Aoba. The altogether sound,
-        including the shower running in the background, is inspired by "Wet," the first track in Jockstrap's 2018 EP,
-        <a href="https://www.youtube.com/watch?v=CezIFlomK-o" target="_blank">Love is the Key to the City</a>.
+        <p hidden>
+
+          Lately, I've been thinking about representation; the computational spaces that minds use to think.
+          
+          Good links:
+          - https://scholar.google.com/scholar?hl=en&as_sdt=0%2C34&q=default+mode+network+brain+language+non-linguistic&btnG=
+          - https://www.nature.com/articles/s41583-024-00802-4
+          - https://www.biorxiv.org/content/10.1101/2023.08.21.553821v1.abstract
+
+        </p>
+
+        For the past seevral months, I have been thinking about modeling the many facets of human
+        interaction. Proxemics, prosody, even the collaborative arts (think jam sessions between 
+        musicians).
+
+        I've especially been thinking about this in terms of machines. 
+        
+        What are the latent spaces that modern
+        artificial intelligences "think" in? These representational spaces are known as latent spaces. Mathematically,
+        these are known as embeddings, which is a way of defining a space with special properties that make
+        it computable. Common latent spaces are Word2Vec, GloVe, and Variational Autoencoders (via Wikipedia).
+
+        What I'm thinking about, though, is the representation for information that is spatiotemporally
+        polymorphic. A common problem in AI is context, a feature of experience that humans perceive, recall,
+        create, and destroy, with considerable ease at an eary age.
+
+        Humans have a neural representation space for multimodal, contextual, temporally complex information.
+        This is most shown in the default mode network by Hasson and colleagues. This "situation model," as
+        some call it (or sense-making network), is implicated in linguistic (and non-linguistic) communication
+        though it is not itself linguistic. Mahowald discusses this in Dissociating Thought & Language, and
+        Dale & Kello (2017) talk about this in the context of sensemaking.
+      
+        How do these systems -- the linguistic and the situational -- interact?
+
+        The angular gyrus seems to be a strong candidate.
+
+        I've been wondering, how can we impact the representational space of a typical transformer model in
+        the same way? This is how I imagine it:
+
+        - Whilst the language model processes input in the typical, predictive fashion, another engine
+        runs underneath. This engine is multimodal, temporally integrative, and has dynamic memory: a
+        reservoir computing model.
+        - The computation of the situation model is the integration of polymorphic information to
+        influence the language model.
+        - Somehow, the representational spaces must be "mixed," though kept separate for different
+        functions of the system.
+
+        This is currently just an idea, but the implementation should come soon. Keep an eye out on this
+        Github page!
       </p>
 
       <p>

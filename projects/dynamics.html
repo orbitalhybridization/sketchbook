@@ -9,6 +9,15 @@
 <body>
   <header>
     <h1>Dynamical Systems and Human Interaction</h1>
+    <div id="header"></div>
+    <script>
+       fetch('../assets/header.html')
+          .then(response => response.text())
+          .then(data => {
+             document.getElementById('header').innerHTML = data;
+          })
+          .catch(error => console.error('Error loading header:', error));
+    </script> 
   </header>
 
   <main>

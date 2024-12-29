@@ -9,14 +9,15 @@
 <body>
   <header>
     <h1>Blog</h1>
-    <nav>
-      <a href="../index.html">Home</a>
-      <a href="../about.html">About Me</a>
-      <a href="../blog.html">Blog</a>
-      <a href="../projects.html">Projects</a>
-      <a href="../assets/docs/cv.pdf" target="_blank">CV</a>
-      <a href="../contact.html">Contact</a>
-    </nav>
+    <div id="header"></div>
+    <script>
+       fetch('../assets/header.html')
+          .then(response => response.text())
+          .then(data => {
+             document.getElementById('header').innerHTML = data;
+          })
+          .catch(error => console.error('Error loading header:', error));
+    </script> 
   </header>
 
   <main>
