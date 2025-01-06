@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Can Large Language Models "Think" Like Humans?</title>
+  <title>Situation Modeling vs. Language Modeling</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -22,49 +22,52 @@
 
   <main>
     <article>
-      <h2>Can Large Language Models "Think" Like Humans?</h2>
+      <h2>Situation Modeling vs. Language Modeling</h2>
       <p><em>Published </em></p>
       <p><em>Edited </em></p>
 
+      <h3>Thought and Language</h3>
       <p>
-        <p hidden>
+       
+        Observed human brain activity appears to reflect the usage of a representational space for multimodal, 
+        contextual information. By multimodal, I mean this information is realized in multiple
+        sensory modalities. By contextual, I mean that it is constrained by a higher level of a temporal heterarchy.
 
-          Lately, I've been thinking about representation; the computational spaces that minds use to think.
-          
-          Good links:
-          - https://scholar.google.com/scholar?hl=en&as_sdt=0%2C34&q=default+mode+network+brain+language+non-linguistic&btnG=
-          - https://www.nature.com/articles/s41583-024-00802-4
-          - https://www.biorxiv.org/content/10.1101/2023.08.21.553821v1.abstract
-
-        </p>
-
-        For the past seevral months, I have been thinking about modeling the many facets of human
-        interaction. Proxemics, prosody, even the collaborative arts (think jam sessions between 
-        musicians).
-
-        I've especially been thinking about this in terms of machines. 
+        This functionality has been most prominently seen in work on the default mode network (DMN), a network of brain regions 
+        distributed across the frontal, parietal, and medial temporal lobes. Though originally known for its super-threshold 
+        activation during resting periods between tasks (hence the name), further investigation has revealed that regions of the DMN 
+        are particularly co-active during higher-order cognitive processes such as prospection and retrospection (thinking about the 
+        future and the past), mind-wandering, imagination, and manipulating situation schemas. [cite] Thus, in the roughly two decades
+        since its discovery, contemporary accounts label the DMN as a sort of engine for "situation modeling" or "sense-making" in
+        the brain. 
         
-        What are the latent spaces that modern
-        artificial intelligences "think" in? These representational spaces are known as latent spaces. Mathematically,
-        these are known as embeddings, which is a way of defining a space with special properties that make
-        it computable. Common latent spaces are Word2Vec, GloVe, and Variational Autoencoders (via Wikipedia).
+      </p>
 
-        What I'm thinking about, though, is the representation for information that is spatiotemporally
-        polymorphic. A common problem in AI is context, a feature of experience that humans perceive, recall,
-        create, and destroy, with considerable ease at an eary age.
+      <p>
 
-        Humans have a neural representation space for multimodal, contextual, temporally complex information.
-        This is most shown in the default mode network by Hasson and colleagues. This "situation model," as
-        some call it (or sense-making network), is implicated in linguistic (and non-linguistic) communication
-        though it is not itself linguistic. Mahowald discusses this in Dissociating Thought & Language, and
-        Dale & Kello (2017) talk about this in the context of sensemaking.
-      
-        How do these systems -- the linguistic and the situational -- interact?
+        What initially piqued my interest about this network is a section in Mahowald et al. (2024)'s Dissociating Language and Thought
+        in Large Language Models. [cite] In the paper, the authors argue for a distinction between formal linguistic competence, a capacity
+        that large language models (LLMs) have largely achieved, and functional linguistic competence, which unaugmented LLMs still struggle with (though
+        this weakness grows less apparent as the technology rapidly improves). The example of functional linguistic competence is simple situational
+        modeling. Essentially, many facets of language are based on these non-linguistic systems, including but not limited to situation modeling
+        (such as theory of mind, for example). This is what intrigues me.
 
-        The angular gyrus seems to be a strong candidate.
+        I began to wonder, how can we impact the representational space of a typical transformer model in
+        the same way that the brain's language network is impacted by others? Can we achieve the same level of natural language use
+        if we blend subsystems to reach a common communicative goal?
+        
+        
+        In its simplest form, there are two augmentations that
+        need to be made to the typical architecture: (1) An additional module for situation modeling, and (2) a functional, representational
+        blending between the two systems. This is just one way to conceive of such a design, and it might not be the most efficient.
 
-        I've been wondering, how can we impact the representational space of a typical transformer model in
-        the same way? This is how I imagine it:
+        That's why this is a blog post and not a journal article.
+
+      </p>
+
+      <p>
+
+      <h3>Basic Design Considerations</h3>
 
         - Whilst the language model processes input in the typical, predictive fashion, another engine
         runs underneath. This engine is multimodal, temporally integrative, and has dynamic memory: a
@@ -72,20 +75,27 @@
         - The computation of the situation model is the integration of polymorphic information to
         influence the language model.
         - Somehow, the representational spaces must be "mixed," though kept separate for different
-        functions of the system.
+        functions of the system. How do these systems -- the linguistic and the situational -- interact in the brain? 
+        Taking inspiration from this design would help. The angular gyrus seems to be a strong candidate.
 
         This is currently just an idea, but the implementation should come soon. Keep an eye out on this
         Github page!
       </p>
 
-      <p>
-        The song is also part of a series of demos that I've been working on as a creative practice. It is the 84th song in the series.
-      </p>
+      <h3>Final Thoughts</h3>
 
-      <audio controls>
-        <source src="../audio/Song 84.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
+      <p>
+        
+        The story that this line of inquiry seeks to investigate is not new; it is about natural language, how humans do it, and 
+        how we can model the process in machines. However, I haven't found much of this brain-inspired approach as I'd like to see
+        in the field.
+        
+        As Dale & Kello (2017) put it in their thought-provoking paper, "How Do Humans Make Sense?": <i>"beyond words, beyond sentences,
+        there's a complex co-creation taking place when two people talk."</i> This non-linguistic part of communication is the engine
+        beneath all of our naturalistic interaction, and I believe that blending functionally tied subsystems in the way the brain does 
+        is a worthy manner of approach.
+
+      </p>
 
     </article>
   </main>
