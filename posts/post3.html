@@ -1,107 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Situation Modeling vs. Language Modeling</title>
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain-Like Language Modeling</title>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .title {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .subheader {
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+            color: #34495e;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            max-width: 60%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container .caption {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        .references {
+            margin-top: 30px;
+        }
+
+        .references h3 {
+            font-size: 1.5em;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+
+        .references ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .references li {
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+        .home-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 8px 16px;
+            background-color: #242f3c;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .home-button:hover {
+            background-color: #242f3c;
+            transform: scale(1.05);
+        }
+
+        .home-button:active {
+            background-color: #003f7f;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Blog</h1>
-    <div id="header"></div>
-    <script>
-       fetch('../assets/header.html')
-          .then(response => response.text())
-          .then(data => {
-             document.getElementById('header').innerHTML = data;
-          })
-          .catch(error => console.error('Error loading header:', error));
-    </script> 
-  </header>
+    <div class="container">
+        <a href="../blog.html" class="home-button">Back Home</a>
+        <h1 class="title">A Cross-Coupled Neural Network System for Brain-Like Language Modeling</h1>
+        <h2 class="subheader">Language at the Event Level</h2>
 
-  <main>
-    <article>
-      <h2>Situation Modeling vs. Language Modeling</h2>
-      <p><em>Published </em></p>
-      <p><em>Edited </em></p>
+        <p>
+            In their 2024 paper “Dissociating Language and Thought in Large Language Models”, Mahowald et al. make use of a common distinction between formal linguistic competence – knowledge of the systematic rules of language – and functional linguistic competence – the ability to use and understand language as an agent embedded in a dynamic environment – to set a standard for human-like linguistic aptitude. The crux of their argument is that unaugmented large language models (LLMs) struggle immensely with functional linguistic competence, which is revealed by their difficulty with tasks involving functional linguistic competence skills such as world knowledge, situation modeling, and social reasoning. To be a human-like language user, the authors argue, one must have competence in both the functional and formal aspects of language. It was the situation modeling section of the paper that first caught my attention. 
+        </p>
 
-      <h3>Thought and Language</h3>
-      <p>
-       
-        Observed human brain activity appears to reflect the usage of a representational space for multimodal, 
-        contextual information. By multimodal, I mean this information is realized in multiple
-        sensory modalities. By contextual, I mean that it is constrained by a higher level of a temporal heterarchy.
+        <div class="image-container">
+            <img src="../assets/images/figures/tikochinski_language_hierarchy_model.png" alt="a hierarchy for language">
+            <p class="caption">Figure 1: The language heterarchy (from Tikochinski et al., 2024).</p>
+        </div>
 
-        This functionality has been most prominently seen in work on the default mode network (DMN), a network of brain regions 
-        distributed across the frontal, parietal, and medial temporal lobes. Though originally known for its super-threshold 
-        activation during resting periods between tasks (hence the name), further investigation has revealed that regions of the DMN 
-        are particularly co-active during higher-order cognitive processes such as prospection and retrospection (thinking about the 
-        future and the past), mind-wandering, imagination, and manipulating situation schemas. [cite] Thus, in the roughly two decades
-        since its discovery, contemporary accounts label the DMN as a sort of engine for "situation modeling" or "sense-making" in
-        the brain. 
+        <p>
+            Situation modeling is, broadly, the mental representation and manipulation of events, narratives, situations, and contexts (see the work of Jeffrey M. Zacks for more than a surface-level definition). For example, an event might be a holiday office event, a trip to the airport, or one’s morning routine. The ability to track information about the world at this level of description is reflected in the brain activity of subjects watching movies, listening to stories, and having conversations. At this level, individual units are separated by event boundaries, when implicated brain regions undergo a distinct reconfiguration upon a suprathreshold context change. The role of situation modeling in language is best visualized in a heterarchal model of language (Figure 1), which depicts natural language as a multi-level complex system that spans from the motor-phonological level to the discourse level. Some, like Steffensen & Pedersen (2014) go even further, proposing models of human interaction that extend far beyond the level of discourse (Figure 2). Essentially, situations naturally frame natural language use in humans — constraining possibilities, setting the stage for shared concepts and representations. For the purposes of this essay, I am particularly interested in this level of events, situations, and contexts when it comes to LLMs.
+        </p>
+
+        <div class="image-container">
+            <img src="../assets/images/figures/steffensen_pedersen_temporal_interaction_model.png" alt="a hierarchy for interaction">
+            <p class="caption">Figure 2: Stefensen & Pedersen's model of the temporal dynamics and range of human interaction.</p>
+        </div>
+
+        <h2 class="subheader">The Default Mode Network</h2>
+
+        <p>
+
+        In the paper, Mahowald et al. (2024) discuss neuroscience findings that evidence situation modeling in many language-related tasks (see the work of Uri Hasson for more comprehensive evidence from fMRI experiments). What’s more is that the functions of brain regions related to situation modeling are not solely linguistic; they appear to track multimodal environmental changes at the context level. In the brain, these functionally connected regions are primarily the medial temporal lobe, medial prefrontal cortex, and posterior cingulate cortex, which together form what is known as the default mode network (DMN). (Hertrich et al., 2020; Buckner, 2008) The DMN appears to be active during processes related to introspection, retrospection, and prospection, which lead to its original discovery and naming, as these were the cognitive processes that occurred in subjects when they were not engaged in a specific task. More recent reviews consider the DMN to be a network primarily for situation modeling and a key component in semantic processing. (Fernandino & Binder, 2024; Yeshurun et al., 2021) The DMN is not the only functionally non-linguistic brain region that is recruited during language use (Fedorenko et al., 2024; Hertrich et al., 2020), but its place in the linguistic heterarchy is certainly unique. When scientists have looked at the default-mode network, they have witnessed a contextually sensitive, richly multimodal, system that both integrates past memory with current context and whose activity is aligned between individuals who share representations of those contexts. Another label for the DMN, proposed in a recent perspective by Yeshurun and colleagues is the “sense-making” network, as it is a core neural system for grounding representations between humans, forming the basis of social cognition. 
+        </p>
+
+        <div class="image-container">
+            <img src="../assets/images/figures/yeshurun_dmn_model.png" alt="a model of the dmn">
+            <p class="caption">Figure 3: A model of the DMN proposed by Yeshurun et al. (2021). The paper proposes the DMN as an integrator of multiple streams of experience.</p>
+        </div>
+
+        <h2 class="subheader">An Artificial Default Mode Network?</h2>
+
+        <p>
+            In my exploration of this literature, I’ve been motivated by two main questions:
+            <ul>
+                <li><i>How can events/situations be decoded from brain activity?</i></li>
+                <li><i>How can the brain’s representational processes at the event/situation level be modeled to improve the intelligent behavior of artificial agents?</i></li>
+            </ul> 
+        </p>
+
+        <p>   
+            This particular discussion addresses the second question, which Mahowald et al. also discuss in their paper. Behind the question is the implication that modern LLMs need to be more than purely symbolic language models to be linguistically competent in the functional sense. These models need also a form of functional situation modeling and/or context integration. In other words, they need a computational subsystem that functions much like the brain’s default mode network.
+        </p>   
         
-      </p>
+        <p>
+            In their paper, the authors propose two approaches to making this improvement. The first is from emergent architecture. Much like the shockingly proficient formal competence that we see emerges from the attention-based architecture of transformer models, it is possible to design architectures that have some emergent property that is functionally similar to the default mode network. The second approach is to make modular additions to LLMs, attaching to them modules that are specifically for situation modeling. In fact, in an interesting recent preprint from Tikochinski et al., 2024, layer embeddings from a GPT model with a DMN-like context integration module were more predictive of DMN-related brain regions than the base GPT model (which was by itself predictive of only language network-related brain regions). In what’s to come, I will propose a model that I like to think combines both the emergent and the modular approaches.
+        </p>
+        <p>
+            So, how does one go about the nontrivial process of modeling a highly complex, little-understood network with spatiotemporally distributed representations? The module used in Tikochinski was a an LLM-based summarization tool that summarized previous inputs and prefixed the current input prompt with that summary. This did work to predict DMN activity, which is potential evidence for computational correlation, but I’m more interested in working directly in the embedding spaces of LLMs. How can representation be enriched by meaningful multimodal, event-level embeddings? This brings me to one of my favorite papers from the past year, called “How Do Humans Make Sense?” by Dale & Kello (2017). In the paper, the authors first describe sensemaking, the multimodal, integrative process that humans use to understand each other. Importantly, sensemaking is described as not entirely linguistic (From Dale & Kello: “beyond words, beyond sentences, there's a complex co-creation taking place when two people talk.”), but is the bedrock upon which linguistic interactions are formed. The crux of their argument is that sensemaking requires three cognitive desiderata: 1) multimodality, 2) dynamic memory, and 3) context integration. Dale & Kello offer a subclass of recurrent neural networks called reservoir computing as a fitting model for a system with their proposed requirements.
+        </p>
 
-      <p>
+        <h2 class="subheader">Reservoir Computing and Context Integration</h2>
+        <p>
+            A quite singular member of the RNN family, reservoir computing models are quite simple by design: a collection of sparsely connected, randomly weighted neurons (the reservoir) that output to a trained module (the readout) that maps the state space of the reservoir to the target space (e.g. word prediction, control output), typically via linear regression. Out of this simple design, emerges a highly complex state space that is capable of representing temporally dynamic signals (chaotic systems like neural oscillations, the Lorenz system, hydrodynamical systems, and spoken language) and a learned readout layer capable of mapping those states to simple outputs. Fascinatingly, the reservoir itself is typically untrained, a design choice originally made to circumvent the vanishing gradient problem. (Perlmutter, 1995) Instead, a combination of high-dimensional projection and the activity that arises from its randomized, recurrent local/global oscillations when tuned to a critical, “edge-of-chaos” dynamical regime gives the reservoir computing model its flair. The reservoir computing design takes advantage of Cover’s Theorem, which suggests that an arbitrary set of points can become linearly separable if projected nonlinearly into a sufficiently large dimensional space. In general, there are a few flavors of reservoir computing, including the liquid state machine and the echo state network, though all share the same fundamental design principle.
+        </p>
 
-        What initially piqued my interest about this network is a section in Mahowald et al. (2024)'s Dissociating Language and Thought
-        in Large Language Models. [cite] In the paper, the authors argue for a distinction between formal linguistic competence, a capacity
-        that large language models (LLMs) have largely achieved, and functional linguistic competence, which unaugmented LLMs still struggle with (though
-        this weakness grows less apparent as the technology rapidly improves). The example of functional linguistic competence is simple situational
-        modeling. Essentially, many facets of language are based on these non-linguistic systems, including but not limited to situation modeling
-        (such as theory of mind, for example). This is what intrigues me.
+        <p>
+            The model was originally proposed as the temporal recurrent network by Dominey et al. (1995) in a successful effort to model populations of neurons in the brain that responded to nonlinear combinations of stimuli (Dominey, 2021). In the following decades, variations on the reservoir computing architecture have been used to model narrative and context integration (Dominey, 2021; Mealier et al., 2017; Pointeau, 2017; Dominey, 2024; Dominey, 2017), with promising results. Dale & Kello (2017) demonstrate that reservoir computing models naturally exhibit their three cognitive desiderata, which emerge from the inherent properties of recurrent integration (dynamic memory), input invariability (multimodality), and provide a toy model to demonstrate how a simple reservoir computing model can integrate information across the phonemic, lexical, and topical levels (context integration).
+        </p>
 
-        I began to wonder, how can we impact the representational space of a typical transformer model in
-        the same way that the brain's language network is impacted by others? Can we achieve the same level of natural language use
-        if we blend subsystems to reach a common communicative goal?
-        
-        
-        In its simplest form, there are two augmentations that
-        need to be made to the typical architecture: (1) An additional module for situation modeling, and (2) a functional, representational
-        blending between the two systems. This is just one way to conceive of such a design, and it might not be the most efficient.
+        <div class="image-container">
+            <img src="../assets/images/figures/reservoir_computing_architecture_simple.png" alt="a neural network model">
+            <p class="caption">Figure 4: The basic reservoir computing architecture (from Hadaeghi, 2019)</p>
+        </div>
 
-        That's why this is a blog post and not a journal article.
+        <p>
+            
+            The default mode network is not mentioned in the paper (it is outside of the scope of the work) but the points underlying their argument are directly related to its role in the information processing brain. Dale and Kello propose a contextually sensitive, richly multimodal, highly integrative system that nonlinearly integrates past states with current inputs, which functionally describes the default mode network. This suggests a potential use for reservoir computing models in modeling DMN-like behavior.
+        </p>        
 
-      </p>
+        <h2 class="subheader">Modelistic Desiderata</h2>
 
-      <p>
+        <p>
+            The idea behind this model is hinged on the fact that the default mode network and the language network are functionally coupled to produce meaningful language-in-context. Below I propose a few modelistic desiderata that are required for emulating this design in a hybridized architecture combining an artificial language network (aLN; transformer model) with an artificial default mode network (aDMN; reservoir computing model).
+        </p>
 
-      <h3>Basic Design Considerations</h3>
 
-        - Whilst the language model processes input in the typical, predictive fashion, another engine
-        runs underneath. This engine is multimodal, temporally integrative, and has dynamic memory: a
-        reservoir computing model.
-        - The computation of the situation model is the integration of polymorphic information to
-        influence the language model.
-        - Somehow, the representational spaces must be "mixed," though kept separate for different
-        functions of the system. How do these systems -- the linguistic and the situational -- interact in the brain? 
-        Taking inspiration from this design would help. The angular gyrus seems to be a strong candidate.
+        <h3>1. Functional Coupling</h3>
 
-        This is currently just an idea, but the implementation should come soon. Keep an eye out on this
-        Github page!
-      </p>
+        <p>
+            Several studies have exemplified the functional coupling between the language and default mode networks during language comprehension. (Fedorenko et al., 2024; Gordon et al., 2020; Hertrich et al., 2020; Fernandino et al., 2024) Gordon et al. (2020) find the anterior lateral subregion of the DMN to be more positively coupled to the language network than other subregions of the network. Others suggest that some regions of the angular gyrus – an area within the default mode network – is a hub for this coupling. (Seghier, 2012; Seghier et al., 2010; Kim et al., 2022). Whatever it may be, a model of this system must have a built-in encoder-decoder that allows the two subsystems to share a representational space. In the context of artificial neural networks, this results in a sort of embedding space injection, such that the context-sensitive activations of the aDMN can inform and constrain the linguistic encodings of the aLN in a meaningful way. In order to make this relationship meaningful, this encoder-decoder hub – a mapping from linguistic to experiential – must be learned.
+        </p>
 
-      <h3>Final Thoughts</h3>
+        <h3>2. Computational Distinctness</h3>
 
-      <p>
-        
-        The story that this line of inquiry seeks to investigate is not new; it is about natural language, how humans do it, and 
-        how we can model the process in machines. However, I haven't found much of this brain-inspired approach as I'd like to see
-        in the field.
-        
-        As Dale & Kello (2017) put it in their thought-provoking paper, "How Do Humans Make Sense?": <i>"beyond words, beyond sentences,
-        there's a complex co-creation taking place when two people talk."</i> This non-linguistic part of communication is the engine
-        beneath all of our naturalistic interaction, and I believe that blending functionally tied subsystems in the way the brain does 
-        is a worthy manner of approach.
+        <p>
+            While the two neural subsystems are, in fact, coupled, they also compute independently – operating on different types of information at different timescales. In the proposed model, this property primarily emerges from the nature of using the two very different architectures. The two artificial neural subsystems will receive inputs of the same stimuli, preprocessed for their computational specifications. In other words, the artificial language network receives word encodings (and/or phonemic ones, depending on the model), while the artificial default mode network receives multimodal inputs to integrate over time. Importantly, the modified reservoir computing model should also possess an event segmentation functionality, which reconfigures the model’s activity at event boundaries. This is a feature seen in the biological default mode network, during which time there is a spike in a DMN-hippocampal coupling at the boundaries themselves, and upon their recall. (Baldassano et al., 2017).
+        </p>
 
-      </p>
+        <h3>3. Generativeness</h3>
+            
+        <p>
+            While the two neural subsystems are, in fact, coupled, they also compute independently – operating on different types of information at different timescales. In the proposed model, this property primarily emerges from the nature of using the two very different architectures. The two artificial neural subsystems will receive inputs of the same stimuli, preprocessed for their computational specifications. In other words, the artificial language network receives word encodings (and/or phonemic ones, depending on the model), while the artificial default mode network receives multimodal inputs to integrate over time. Importantly, the modified reservoir computing model should also possess an event segmentation functionality, which reconfigures the model’s activity at event boundaries. This is a feature seen in the biological default mode network, during which time there is a spike in a DMN-hippocampal coupling at the boundaries themselves, and upon their recall. (Baldassano et al., 2017).
+        </p>
 
-    </article>
-  </main>
+        <p>
+            These desiderata, while not exhaustive, form a basis for a language system consisting of a transformer-based large language model (language network) and a modified reservoir computing model (default mode network). The two systems receive inputs separately, but the representations of the aLN are passively modulated by the aDMN via the shared embedding space. This, in principle, results in a sort of representational blending – a proxy for the coupling seen in the brain – between the context-sensitive reservoir activations and the language model.
+        </p>
 
-  <footer>
-    <p>© 2024 Ian L. Jackson</p>
-  </footer>
+        <p>
+            As I mentioned earlier, the model I propose covers both the emergent and modular approaches discussed in Mahowald et al. (2024). There is a separate, non-linguistic module in the form of the artificial DMN, but the properties of the language system as a whole emerge from their coupling. By design, this is meant to be more brain-like, in that natural language recruits functionally non-linguistic computational resources.  Though future explorations should aim to confirm the biological plausibility and general feasibility of this design, I believe it is worthy of further exploration. For the purposes of this essay, I am just having some good fun. 
+        </p>
+
+        <h2 class="subheader">Limitations and Conclusion</h2>
+
+        <p>
+            It is important to note that none of what I have discussed is to say that having a DMN-like capacity is sufficient for human-like language proficiency in LLMs. The paper by Mahowald et al. (2024) also discusses the problem of functional competence in the context of other functionalities implicated in language use, such as theory of mind, world modeling, and executive control. Indeed, studies have also shown specialized regions of the DMN that couple to some of these other cognitive faculties as well. Situation modeling just happens to have caught my interest enough to develop an intellectual obsession with it for the past several months.   
+        </p>
+
+        <p>
+            It is important to note that none of what I have discussed is to say that having a DMN-like capacity is sufficient for human-like language proficiency in LLMs. The paper by Mahowald et al. (2024) also discusses the problem of functional competence in the context of other functionalities implicated in language use, such as theory of mind, world modeling, and executive control. Indeed, studies have also shown specialized regions of the DMN that couple to some of these other cognitive faculties as well. Situation modeling just happens to have caught my interest enough to develop an intellectual obsession with it for the past several months. 
+        </p>
+        <p>The work is, obviously, very incomplete and there remain a few outstanding questions:
+            <ul>
+                <li>How can meaningful recall be induced in the artificial DMN? In other words, to what sensitivity would similar world (or imagined) states lead to similar activations?</li>
+                <li>How might the system be trained?</li>
+                <li>How would mapping to the shared embedding space work? Simple linear regression? A separate neural network in the form of an encoder-decoder?</li>
+                <li>Would situations/events be generated continuously or as single discrete representations?</li>
+                <li>How much is external memory required for useful recall?</li>
+            </ul>
+        </p>
+
+        <p>
+            Thus, I’ve dedicated what free time I have to this pet project of mine, which has led me to several meetings with professors and researchers in linguistics, cognitive science, social psychology, network neuroscience, machine learning, and cognitive neuroscience. The effort has also led to a few mini-projects on GitHub, which I will post under the site page for this project. I am putting the project down in light of some more pressing and more tractable research to-dos, but I hope to return to it anew quite soon!
+
+        </p>
+
+        <a href="../blog.html" class="home-button">Back Home</a>
+        <h2 class="subheader">References</h2>
+        <div class="references">
+            <ul>
+                <li>Mahowald, K., Ivanova, A. A., Blank, I. A., Kanwisher, N., Tenenbaum, J. B., & Fedorenko, E. (2024). Dissociating language and thought in large language models. In Trends in Cognitive Sciences (Vol. 28, Issue 6, pp. 517–540). Elsevier BV. <a href="https://doi.org/10.1016/j.tics.2024.01.011">https://doi.org/10.1016/j.tics.2024.01.011</a></li>
+                <li>Fedorenko, E., Ivanova, A.A. & Regev, T.I. The language network as a natural kind within the broader landscape of the human brain. Nat. Rev. Neurosci. 25, 289–312 (2024). <a href="https://doi.org/10.1038/s41583-024-00802-4">https://doi.org/10.1038/s41583-024-00802-4</a></li>
+                <li>Tikochinski, R., Goldstein, A., Meiri, Y., Hasson, U., & Reichart, R. (2024). Incremental Accumulation of Linguistic Context in Artificial and Biological Neural Networks. ArXiv: Cold Spring Harbor Laboratory. <a href="https://doi.org/10.1101/2024.01.15.575798">https://doi.org/10.1101/2024.01.15.575798</a></li>
+                <li>Steffensen, S., & Pedersen, S. B. (2014). Temporal dynamics in human interaction. Cybernetics & Human Knowing, 21(1-2), 80-97.</li>
+                <li>Baldassano, C., Chen, J., Zadbood, A., Pillow, J. W., Hasson, U., & Norman, K. A. (2017). Discovering Event Structure in Continuous Narrative Perception and Memory. In Neuron (Vol. 95, Issue 3, pp. 709-721.e5). Elsevier BV. <a href="https://doi.org/10.1016/j.neuron.2017.06.041">https://doi.org/10.1016/j.neuron.2017.06.041</a></li>
+                <li>Buckner, R. L., Andrews‐Hanna, J. R., & Schacter, D. L. (2008). The Brain’s Default Network. In Annals of the New York Academy of Sciences (Vol. 1124, Issue 1, pp. 1–38). Wiley. <a href="https://doi.org/10.1196/annals.1440.011">https://doi.org/10.1196/annals.1440.011</a></li>
+                <li>Gordon, E. M., Laumann, T. O., Marek, S., Raut, R. V., Gratton, C., Newbold, D. J., Greene, D. J., Coalson, R. S., Snyder, A. Z., Schlaggar, B. L., Petersen, S. E., Dosenbach, N. U. F., & Nelson, S. M. (2020). Default-mode network streams for coupling to language and control systems. In Proceedings of the National Academy of Sciences (Vol. 117, Issue 29, pp. 17308–17319). Proceedings of the National Academy of Sciences. <a href="https://doi.org/10.1073/pnas.2005238117">https://doi.org/10.1073/pnas.2005238117</a></li>
+                <li>Fernandino, L., & Binder, J. R. (2024). How does the “default mode” network contribute to semantic cognition? In Brain and Language (Vol. 252, p. 105405). Elsevier BV. <a href="https://doi.org/10.1016/j.bandl.2024.105405">https://doi.org/10.1016/j.bandl.2024.105405</a></li>
+                <li>Hertrich, I., Dietrich, S., & Ackermann, H. (2020). The Margins of the Language Network in the Brain. In Frontiers in Communication (Vol. 5). Frontiers Media SA. <a href="https://doi.org/10.3389/fcomm.2020.519955">https://doi.org/10.3389/fcomm.2020.519955</a></li>
+                <li>Pearlmutter, B. A. (1995). Gradient calculations for dynamic recurrent neural networks: a survey. In IEEE Transactions on Neural Networks (Vol. 6, Issue 5, pp. 1212–1228). Institute of Electrical and Electronics Engineers (IEEE). <a href="https://doi.org/10.1109/72.410363">https://doi.org/10.1109/72.410363</a></li>
+                <li>Dominey, P. F. (2024). Effects of Input Structure and Topology on Input-Driven Functional Connectivity Stability. In Lecture Notes in Computer Science (pp. 91–105). Springer Nature Switzerland. <a href="https://doi.org/10.1007/978-3-031-72359-9_7">https://doi.org/10.1007/978-3-031-72359-9_7</a></li>
+                <li>Dominey, P. F., Mealier, A. L., Pointeau, G., Mirliaz, S., & Finlayson, M. (2017, March). Dynamic construction grammar and steps towards the narrative construction of meaning. In 2017 AAAI Spring Symposium Series.</li>
+                <li>Dominey, P. F. (2024). A connectivity gradient in structured reservoir computing predicts a hierarchy for mixed selectivity in human cortex. In 2024 International Joint Conference on Neural Networks (IJCNN) (pp. 1–8). 2024 International Joint Conference on Neural Networks (IJCNN). IEEE. <a href="https://doi.org/10.1109/ijcnn60899.2024.10650571">https://doi.org/10.1109/ijcnn60899.2024.10650571</a></li>
+                <li>Dominey, P. F., Ellmore, T. M., & Ventre-Dominey, J. (2022). Effects of Connectivity on Narrative Temporal Processing in Structured Reservoir Computing. In 2022 International Joint Conference on Neural Networks (IJCNN). 2022 International Joint Conference on Neural Networks (IJCNN). IEEE. <a href="https://doi.org/10.1109/ijcnn55064.2022.9891967">https://doi.org/10.1109/ijcnn55064.2022.9891967</a></li>
+                <li>Pointeau, G., & Dominey, P. F. (2017). The Role of Autobiographical Memory in the Development of a Robot Self. In Frontiers in Neurorobotics (Vol. 11). Frontiers Media SA. <a href="https://doi.org/10.3389/fnbot.2017.00027">https://doi.org/10.3389/fnbot.2017.00027</a></li>
+                <li>Mealier, A.-L., Pointeau, G., Mirliaz, S., Ogawa, K., Finlayson, M., & Dominey, P. F. (2017). Narrative Constructions for the Organization of Self Experience: Proof of Concept via Embodied Robotics. In Frontiers in Psychology (Vol. 8). Frontiers Media SA. <a href="https://doi.org/10.3389/fpsyg.2017.01331">https://doi.org/10.3389/fpsyg.2017.01331</a></li>
+                <li>Dominey, P. F. (2021). Narrative event segmentation in the cortical reservoir. In F. E. Theunissen (Ed.), PLOS Computational Biology (Vol. 17, Issue 10, p. e1008993). Public Library of Science (PLoS). <a href="https://doi.org/10.1371/journal.pcbi.1008993">https://doi.org/10.1371/journal.pcbi.1008993</a></li>
+                <li>Dominey, P. F. (2021). Cortico-Striatal Origins of Reservoir Computing, Mixed Selectivity, and Higher Cognitive Function. In Natural Computing Series (pp. 29–58). Springer Singapore. <a href="https://doi.org/10.1007/978-981-13-1687-6_2">https://doi.org/10.1007/978-981-13-1687-6_2</a></li>
+                <li>Seghier, M. L. (2012). The Angular Gyrus. In The Neuroscientist (Vol. 19, Issue 1, pp. 43–61). SAGE Publications. <a href="https://doi.org/10.1177/1073858412440596">https://doi.org/10.1177/1073858412440596</a></li>
+                <li>Kim, H., Wang, K., Cutting, L. E., Willcutt, E. G., Petrill, S. A., Leopold, D. R., Reineberg, A. E., Thompson, L. A., & Banich, M. T. (2022). The Angular Gyrus as a Hub for Modulation of Language-related Cortex by Distinct Prefrontal Executive Control Regions. In Journal of Cognitive Neuroscience (Vol. 34, Issue 12, pp. 2275–2296). MIT Press. <a href="https://doi.org/10.1162/jocn_a_01915">https://doi.org/10.1162/jocn_a_01915</a></li>
+                <li>Seghier, M. L., Fagan, E., & Price, C. J. (2010). Functional Subdivisions in the Left Angular Gyrus Where the Semantic System Meets and Diverges from the Default Network. In The Journal of Neuroscience (Vol. 30, Issue 50, pp. 16809–16817). Society for Neuroscience. <a href="https://doi.org/10.1523/jneurosci.3377-10.2010">https://doi.org/10.1523/jneurosci.3377-10.2010</a></li>
+            </ul>            
+        </div>
+    </div>
 </body>
 </html>
