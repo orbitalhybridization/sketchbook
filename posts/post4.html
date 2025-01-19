@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Hum (Song 84)</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Blog</h1>
+    <div id="header"></div>
+    <script>
+       fetch('../assets/header.html')
+          .then(response => response.text())
+          .then(data => {
+             document.getElementById('header').innerHTML = data;
+          })
+          .catch(error => console.error('Error loading header:', error));
+    </script> 
+  </header>
+
+  <main>
+    <article>
+      <h2>Oh, happiness! (Song 89)</h2>
+      <p><em>Published Jan 18, 2025</em></p>
+
+      <p>
+        This folksy tune came to me during one of the nightly creative practice sessions I've
+        been having over the last few months. The sound is primarily inspired by Adrianne Lenker,
+        Haley Heynderickx, and a bit of Angel Olsen. I really like the lilting harmonies and the
+        dissonant B6 contrasted against the E Major.
+      </p>
+
+      <p>
+        As I was putting the song together, it started to feel like one of those folk songs that
+        tells a story. The song <i>Lighthouse</i> by Adrianne Lenker from Hours Were the Birds
+        especially came to mind (where she also sings about the woes of being seventeen). The story is a
+        fun little fabrication, and he working title of the song (Oh, happiness!) is a bit of a play on 
+        the Molly Drake song, <i>Happiness</i>, from The Tide's Magnificence: Songs and Poems of Molly Drake.
+      </p>
+
+      <audio controls>
+        <source src="../assets/audio/Song 89.wav" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2025 Ian L. Jackson</p>
+  </footer>
+</body>
+</html>
